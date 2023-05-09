@@ -26,3 +26,9 @@ mod common;
 
 pub mod sd;
 pub mod emmc;
+
+mod blocking;
+pub use blocking::{
+    BlockingSdioHost, BlockingSdioTransport, HostError, TransportData, TransportError,
+    TransportMode,
+};

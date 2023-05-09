@@ -17,3 +17,6 @@ categories = [
     "embedded",
     "no-std",
 ]
+
+[dependencies]
+embedded-sdmmc = "0.4"
