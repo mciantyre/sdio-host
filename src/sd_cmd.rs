@@ -7,8 +7,14 @@ pub struct R6;
 /// R7: Card interface condition
 pub struct R7;
 
-impl Resp for R6 {}
-impl Resp for R7 {}
+impl Resp for R6 {
+    const CRC: bool = true;
+    const COMMAND_INDEX: bool = true;
+}
+impl Resp for R7 {
+    const CRC: bool = true;
+    const COMMAND_INDEX: bool = true;
+}
 
 /// CMD3: Send RCA
 pub fn send_relative_address() -> Cmd<R6> {

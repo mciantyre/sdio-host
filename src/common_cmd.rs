@@ -24,18 +24,32 @@ pub struct R3;
 
 pub trait Resp {
     const LENGTH: ResponseLen = ResponseLen::R48;
+    /// `true` if the response includes a CRC in bits \[7:1\].
+    const CRC: bool;
+    /// `true` if the response includes the command index in bits \[45:40\].
+    const COMMAND_INDEX: bool;
 }
 
 impl Resp for Rz {
     const LENGTH: ResponseLen = ResponseLen::Zero;
+    const CRC: bool = false;
+    const COMMAND_INDEX: bool = false;
 }
 
 impl Resp for R2 {
     const LENGTH: ResponseLen = ResponseLen::R136;
+    const CRC: bool = true;
+    const COMMAND_INDEX: bool = false;
 }
 
-impl Resp for R1 {}
-impl Resp for R3 {}
+impl Resp for R1 {
+    const CRC: bool = true;
+    const COMMAND_INDEX: bool = true;
+}
+impl Resp for R3 {
+    const CRC: bool = false;
+    const COMMAND_INDEX: bool = false;
+}
 
 /// Command Response type
 #[derive(Eq, PartialEq, Copy, Clone)]
