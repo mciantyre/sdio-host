@@ -648,7 +648,6 @@ where
         &self,
         blocks: &mut [embedded_sdmmc::Block],
         start_block_idx: embedded_sdmmc::BlockIdx,
-        _: &str,
     ) -> Result<(), Self::Error> {
         let start = start_block_idx.0;
         let mut host = self.0.borrow_mut();

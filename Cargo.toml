@@ -19,4 +19,4 @@ categories = [
 ]
 
 [dependencies]
-embedded-sdmmc = "0.4"
+embedded-sdmmc = "0.9"
